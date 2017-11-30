@@ -11,16 +11,12 @@ public class ConvertTest {
         ArrayList<SingleLog> singleList = new ArrayList<SingleLog>();
         singleList.add(new SingleLog("www.google.com","132.65.13.255", 1512048338000L,452));
         List<SingleLog> now = Convert.csvToSingleLogs("single.csv");
-        System.out.println(singleList.get(0).date);
-        System.out.println(singleList.get(0).timeSeconds);
-        System.out.println(singleList.get(0).url);
-        System.out.println(singleList.get(0).ip);
-        System.out.println("");
-        System.out.println(now.get(0).date);
-        System.out.println(now.get(0).timeSeconds);
-        System.out.println(now.get(0).url);
-        System.out.println(now.get(0).ip);
-        Assert.assertEquals(now, singleList);
+        Assert.assertEquals(singleList.get(0).timeSeconds, now.get(0).timeSeconds);
+        Assert.assertEquals(singleList.get(0).url, now.get(0).url);
+        Assert.assertEquals(singleList.get(0).ip, now.get(0).ip);
+        Assert.assertEquals(singleList.get(0).date, now.get(0).date);
+
+//        Assert.assertEquals(now, singleList);
         Assert.assertTrue(true);
     }
 
