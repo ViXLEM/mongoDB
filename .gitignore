@@ -64,4 +64,6 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 
+gradlew.bat
+
 # gradle/wrapper/gradle-wrapper.properties 
