@@ -17,8 +17,7 @@ before_script:
     - unzip gradle-3.5-bin.zip
     - export GRADLE_HOME=$PWD/gradle-3.5
     - export PATH=$GRA1DLE_HOME/bin:$PATH
-    - wget  -O ~/single.csv "https://raw.githubusercontent.com/ViXLEM/mongoDB/master/src/test/java/single.csv"
-
+    
 script:
   - ./gradlew assemble
   - ./gradlew check
