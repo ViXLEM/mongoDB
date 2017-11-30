@@ -1,13 +1,15 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 
 public class ConvertTest {
     @Test
     public void CSVtoSingleLogs() throws Exception {
-//        ArrayList<SingleLog> singleList = new ArrayList<SingleLog>();
-//        singleList.add(new SingleLog("www.google.com","132.65.13.255", 1512048338000L,452));
-//        Assert.assertEquals(Convert.csvToSingleLogs("/home/travis/build/ViXLEM/mongoDB/src/test/java/single.csv"), singleList);
+        ArrayList<SingleLog> singleList = new ArrayList<SingleLog>();
+        singleList.add(new SingleLog("www.google.com","132.65.13.255", 1512048338000L,452));
+        Assert.assertEquals(Convert.csvToSingleLogs("~/mongoDB/src/test/java/single.csv"), singleList);
         Assert.assertTrue(true);
     }
 
