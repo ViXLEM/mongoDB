@@ -1,5 +1,5 @@
 import db2l.SingleLog;
-import org.junit.Assert.*;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class SingleLogTest {
