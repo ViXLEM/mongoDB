@@ -1,12 +1,8 @@
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import static com.mongodb.client.model.Filters.*;
-import static com.mongodb.client.model.Sorts.descending;
 
 import org.bson.Document;
-import org.json.*;
 
 import java.io.IOException;
 import java.text.ParseException;
