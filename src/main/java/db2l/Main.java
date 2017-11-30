@@ -27,19 +27,21 @@ public class Main {
         System.out.println(urlByIp);
         Set<String> urlByTime = query.getUrlByTime("12:00:00 01.11.2017", "12:00:00 10.11.2017");
         System.out.println(urlByTime);
-        printResponse(query.getTopUrlBySumDuration());
-        printResponse(query.getTopUrlByVisit());
-        printResponse(query.getTopUrlPerPeriod("12:00:00 01.11.2017", "00:00:00 05.11.2017"));
-        printResponse(query.getTopIpByVisitAndDuration());
+        System.out.println(getString(query.getTopUrlBySumDuration()));
+        System.out.println(getString(query.getTopUrlByVisit()));
+        System.out.println(getString(query.getTopUrlPerPeriod("12:00:00 01.11.2017", "00:00:00 05.11.2017")));
+        System.out.println(getString(query.getTopIpByVisitAndDuration()));
 
         System.out.println(collection.count());
 //        db2l.Convert.csvToDB("./log.csv", collection);
     }
 
-    public static void printResponse(Iterator<Document> response){
+    public static String getString(Iterator<Document> response){
+        String ret = "";
         while (response.hasNext()) {
-            System.out.println(response.next().toJson());
+            ret += response.next().toJson() + "\n";
         }
+        return ret;
     }
 
 
