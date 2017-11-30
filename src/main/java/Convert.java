@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Convert {
 
-    public static List<SingleLog> CSVtoSingleLogs(String path){
+    public static List<SingleLog> csvToSingleLogs(String path){
         ArrayList<SingleLog> logs = new ArrayList<SingleLog>();
         try {
             CSVReader reader = new CSVReader(new FileReader(path));
@@ -31,7 +31,7 @@ public class Convert {
         return logs;
     }
 
-    public static String SingleLogsToJSON(List<SingleLog> logs){
+    public static String singleLogsToJSON(List<SingleLog> logs){
         Gson gson = new Gson();
         String logsString = "";
         for (SingleLog log:logs ){
@@ -42,8 +42,8 @@ public class Convert {
     }
 
     public static void csvToDB(String path, MongoCollection<Document> collection){
-        List<SingleLog> singleLogList = CSVtoSingleLogs(path);
-        String jsonStrings = SingleLogsToJSON(singleLogList);
+        List<SingleLog> singleLogList = csvToSingleLogs(path);
+        String jsonStrings = singleLogsToJSON(singleLogList);
         ArrayList<String> jsonStringList = new ArrayList<String>(Arrays.asList(jsonStrings.split("}, ")));
         for(String jsonStr:jsonStringList){
             Document doc = Document.parse(jsonStr+"}");

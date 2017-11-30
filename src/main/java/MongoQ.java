@@ -13,8 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MongoQ {
-        MongoDatabase database = null;
-        MongoCollection<Document> collection = null;
+        private MongoDatabase database = null;
+        private MongoCollection<Document> collection = null;
 
         public MongoQ(MongoDatabase database, MongoCollection<Document> collection){
             this.collection = collection;
