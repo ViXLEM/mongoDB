@@ -31,7 +31,7 @@ public class Main {
 //        printResponse(query.getTopIpByVisitAndDuration());
 
         System.out.println(collection.count());
-//        Convert.csvToDB("./src/main/java/log.csv", collection);
+//        Convert.csvToDB("./log.csv", collection);
     }
 
     public static void printResponse(Iterator<Document> response){
