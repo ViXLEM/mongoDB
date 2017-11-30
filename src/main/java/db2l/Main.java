@@ -1,3 +1,5 @@
+package db2l;
+
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -27,11 +29,11 @@ public class Main {
         System.out.println(urlByTime);
         printResponse(query.getTopUrlBySumDuration());
         printResponse(query.getTopUrlByVisit());
-        printResponse(query.getTopUrlPerPeriod("12:00:00 01.01.2017", "12:00:00 01.06.2017"));
+        printResponse(query.getTopUrlPerPeriod("12:00:00 01.11.2017", "00:00:00 05.11.2017"));
         printResponse(query.getTopIpByVisitAndDuration());
 
         System.out.println(collection.count());
-//        Convert.csvToDB("./log.csv", collection);
+//        db2l.Convert.csvToDB("./log.csv", collection);
     }
 
     public static void printResponse(Iterator<Document> response){

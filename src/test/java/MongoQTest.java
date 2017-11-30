@@ -1,6 +1,8 @@
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import db2l.Convert;
+import db2l.MongoQ;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.junit.Assert;
@@ -13,7 +15,7 @@ import java.util.*;
 public class MongoQTest {
     private MongoDatabase database = null;
     private MongoCollection<Document> collection = null;
-    MongoQ query = null;
+    private MongoQ query = null;
 
     @Before
     public void before() {

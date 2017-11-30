@@ -1,22 +1,17 @@
+import db2l.Convert;
+import db2l.SingleLog;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class ConvertTest {
     @Test
-    public void CSVtoSingleLogs() throws Exception {
+    public void csvToSingleLogs() throws Exception {
         ArrayList<SingleLog> singleList = new ArrayList<SingleLog>();
         singleList.add(new SingleLog("www.google.com","132.65.13.255", 1512055538000L,452));
-        List<SingleLog> now = Convert.csvToSingleLogs("single.csv");
-        Assert.assertEquals(singleList.get(0).timeSeconds, now.get(0).timeSeconds);
-        Assert.assertEquals(singleList.get(0).url, now.get(0).url);
-        Assert.assertEquals(singleList.get(0).ip, now.get(0).ip);
-        Assert.assertEquals(singleList.get(0).date, now.get(0).date);
-
-        Assert.assertEquals(now, singleList);
+        Assert.assertEquals(Convert.csvToSingleLogs("single.csv"), singleList);
         Assert.assertTrue(true);
     }
 
