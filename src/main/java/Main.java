@@ -18,17 +18,17 @@ public class Main {
 
         MongoQ query = new MongoQ(database, collection);
 
-//        System.out.println();
-//        Set<String> ipByUrl = query.getIpByUrl("www.ukr.net");
-//        System.out.println(ipByUrl);
-//        Set<String> urlByIp = query.getUrlByIp("116.98.162.185");
-//        System.out.println(urlByIp);
-//        Set<String> urlByTime = query.getUrlByTime("12:00:00 01.01.1970", "12:00:00 01.03.2017");
-//        System.out.println(urlByTime);
-//        printResponse(query.getTopUrlBySumDuration());
-//        printResponse(query.getTopUrlByVisit());
-//        printResponse(query.getTopUrlPerPeriod("12:00:00 01.01.2017", "12:00:00 01.06.2017"));
-//        printResponse(query.getTopIpByVisitAndDuration());
+        System.out.println();
+        Set<String> ipByUrl = query.getIpByUrl("www.ukr.net");
+        System.out.println(ipByUrl);
+        Set<String> urlByIp = query.getUrlByIp("116.98.162.185");
+        System.out.println(urlByIp);
+        Set<String> urlByTime = query.getUrlByTime("12:00:00 01.11.2017", "12:00:00 10.11.2017");
+        System.out.println(urlByTime);
+        printResponse(query.getTopUrlBySumDuration());
+        printResponse(query.getTopUrlByVisit());
+        printResponse(query.getTopUrlPerPeriod("12:00:00 01.01.2017", "12:00:00 01.06.2017"));
+        printResponse(query.getTopIpByVisitAndDuration());
 
         System.out.println(collection.count());
 //        Convert.csvToDB("./log.csv", collection);
