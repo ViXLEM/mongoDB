@@ -17,18 +17,6 @@ public class SingleLog {
     }
 
     @Override
-    public String toString(){
-        return "url:" + url + " | ip:" + ip + " | Date:" + new Date(date) + " | Long:" + timeSeconds;
-    }
-
-    public Document toDocument(){
-        return new Document("url", url)
-                .append("ip", ip)
-                .append("date", String.valueOf(date))
-                .append("time", timeSeconds);
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
@@ -51,7 +39,7 @@ public class SingleLog {
 
     @Override
     public int hashCode() {
-        int hash = (int) ((this.timeSeconds + this.date)*this.timeSeconds/1000);
+        int hash = (int) ((this.timeSeconds + this.date)/1000);
         return hash;
     }
 
