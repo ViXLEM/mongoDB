@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.Date;
 
 public class SingleLog {
-    private String url;
-    private String ip;
-    private long date;
-    private int timeSeconds;
+    String url;
+    String ip;
+    long date;
+    int timeSeconds;
 
     public SingleLog(String url, String ip, long date, int time) throws IOException {
         this.url = url;

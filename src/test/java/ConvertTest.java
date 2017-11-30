@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ConvertTest {
@@ -9,7 +10,17 @@ public class ConvertTest {
     public void CSVtoSingleLogs() throws Exception {
         ArrayList<SingleLog> singleList = new ArrayList<SingleLog>();
         singleList.add(new SingleLog("www.google.com","132.65.13.255", 1512048338000L,452));
-        Assert.assertEquals(Convert.csvToSingleLogs("single.csv"), singleList);
+        List<SingleLog> now = Convert.csvToSingleLogs("single.csv");
+        System.out.println(singleList.get(0).date);
+        System.out.println(singleList.get(0).timeSeconds);
+        System.out.println(singleList.get(0).url);
+        System.out.println(singleList.get(0).ip);
+        System.out.println("");
+        System.out.println(now.get(0).date);
+        System.out.println(now.get(0).timeSeconds);
+        System.out.println(now.get(0).url);
+        System.out.println(now.get(0).ip);
+        Assert.assertEquals(now, singleList);
         Assert.assertTrue(true);
     }
 
