@@ -1,17 +1,13 @@
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import org.apache.commons.lang3.ObjectUtils;
 import org.bson.Document;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
-import static org.junit.Assert.*;
 
 public class MongoQTest {
     private MongoDatabase database = null;
@@ -62,18 +58,39 @@ public class MongoQTest {
 
     @Test
     public void getTopUrlBySumDuration() throws Exception {
+        ArrayList<Document> topList = toArrayList(query.getTopUrlBySumDuration());
+        Assert.assertEquals(topList.get(0).get("_id"), "www.vk.com");
+        Assert.assertEquals(topList.get(0).get("value"), 8174.0);
     }
 
     @Test
     public void getTopUrlByVisit() throws Exception {
+        ArrayList<Document> topList = toArrayList(query.getTopUrlByVisit());
+        Assert.assertEquals(topList.get(0).get("_id"), "www.vk.com");
+        Assert.assertEquals(topList.get(0).get("value"), 15.0);
     }
 
     @Test
     public void getTopUrlPerPeriod() throws Exception {
+        ArrayList<Document> topList = toArrayList(query.getTopUrlPerPeriod("12:00:00 01.11.2017", "00:00:00 05.11.2017"));
+        Assert.assertEquals(topList.get(1).get("_id"), "www.aliexpress.com");
+        Assert.assertEquals(topList.get(1).get("value"), 3.0);
     }
 
     @Test
     public void getTopIpByVisitAndDuration() throws Exception {
+        ArrayList<Document> topList = toArrayList(query.getTopIpByVisitAndDuration());
+        Assert.assertEquals(topList.get(1).get("_id"), "237.17.1.10");
+        Assert.assertEquals(topList.get(1).get("value"), new Document("count", 13.0).append("duration", 8048.0));
+    }
+
+    private ArrayList<Document> toArrayList(Iterator<Document> documentFindIterable) {
+        ArrayList<Document> result = new ArrayList<>();
+        for (Iterator<Document> it = documentFindIterable; it.hasNext(); ) {
+            Document d = it.next();
+            result.add(d);
+        }
+        return result;
     }
 
 }
