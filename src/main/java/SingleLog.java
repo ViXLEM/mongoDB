@@ -28,4 +28,31 @@ public class SingleLog {
                 .append("time", timeSeconds);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        final SingleLog other = (SingleLog) obj;
+        if ((this.url == null) ? (other.url != null) : !this.url.equals(other.url)) {
+            return false;
+        }
+        if ((this.ip == null) ? (other.ip != null) : !this.ip.equals(other.ip)) {
+            return false;
+        }
+        if (this.timeSeconds != other.timeSeconds) {
+            return false;
+        }
+        if (this.date != other.date) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = (int) ((this.timeSeconds + this.date)*this.timeSeconds/1000);
+        return hash;
+    }
+
 }
