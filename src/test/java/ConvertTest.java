@@ -12,7 +12,6 @@ public class ConvertTest {
         ArrayList<SingleLog> singleList = new ArrayList<SingleLog>();
         singleList.add(new SingleLog("www.google.com","132.65.13.255", 1512055538000L,452));
         Assert.assertEquals(Convert.csvToSingleLogs("single.csv"), singleList);
-        Assert.assertTrue(true);
     }
 
     @Test
