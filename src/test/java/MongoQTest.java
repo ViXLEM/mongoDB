@@ -2,6 +2,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +22,9 @@ public class MongoQTest {
         this.collection = database.getCollection("logs");
 
         this.query = new MongoQ(database, collection);
+        Bson condition = new Document("$gt", "");
+        Bson filter = new Document("url", condition);
+        collection.deleteMany(filter);
         Convert.csvToDB("log.csv", collection);
     }
 
